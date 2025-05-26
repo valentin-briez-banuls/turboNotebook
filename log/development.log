@@ -1,0 +1,374 @@
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:49:22 +0200
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20250518084841_create_notes.rb
+
+
+):
+  
+activerecord (7.0.8.7) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8.7) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8.7) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8.7) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8.7) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8.7) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8.7) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8.7) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8.7) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8.7) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.15) lib/rack/method_override.rb:24:in `call'
+rack (2.2.15) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.15) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8.7) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8.7) lib/rails/engine.rb:530:in `call'
+puma (5.6.9) lib/puma/configuration.rb:252:in `call'
+puma (5.6.9) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.9) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.9) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.9) lib/puma/server.rb:443:in `process_client'
+puma (5.6.9) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotes (20250518084841)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "notes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20250518084841"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2025-05-26 18:51:39.129820"], ["updated_at", "2025-05-26 18:51:39.129820"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:51:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2634)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 5195)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 8613)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:52:26 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1162)
+  Rendered layout layouts/application.html.erb (Duration: 250.0ms | Allocations: 85483)
+Completed 200 OK in 253ms (Views: 251.8ms | ActiveRecord: 0.2ms | Allocations: 86391)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2025-05-26 20:52:33 +0200
+Processing by NotesController#new as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/new.html.erb within layouts/turbo_rails/frame
+  Rendered notes/_form.html.erb (Duration: 12.2ms | Allocations: 2766)
+  Rendered notes/new.html.erb within layouts/turbo_rails/frame (Duration: 13.8ms | Allocations: 3190)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 15.0ms | Allocations: 3430)
+Completed 200 OK in 45ms (Views: 16.8ms | ActiveRecord: 0.4ms | Allocations: 10223)
+
+
+Started GET "/notes" for 127.0.0.1 at 2025-05-26 20:52:34 +0200
+Processing by NotesController#index as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/index.html.erb within layouts/turbo_rails/frame
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/turbo_rails/frame (Duration: 2.0ms | Allocations: 1056)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 2.2ms | Allocations: 1151)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 1660)
+
+
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:52:35 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 821)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3189)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 3568)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:53:36 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 822)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2935)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 3190)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:53:37 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 821)
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 2934)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.2ms | Allocations: 3189)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:08 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 821)
+  Rendered layout layouts/application.html.erb (Duration: 51.9ms | Allocations: 33340)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.1ms | Allocations: 33597)
+
+
+  
+ActionView::Template::Error (Asset `application.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.css
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:12 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 3125)
+  Rendered layout layouts/application.html.erb (Duration: 75.4ms | Allocations: 38510)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 0.3ms | Allocations: 43060)
+
+
+  
+ActionView::Template::Error (Asset `application.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.css
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:18 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1267)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3797)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 4709)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2025-05-26 20:55:19 +0200
+Processing by NotesController#new as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/new.html.erb within layouts/turbo_rails/frame
+  Rendered notes/_form.html.erb (Duration: 6.2ms | Allocations: 2205)
+  Rendered notes/new.html.erb within layouts/turbo_rails/frame (Duration: 7.9ms | Allocations: 2604)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 9.1ms | Allocations: 2842)
+Completed 200 OK in 24ms (Views: 10.4ms | ActiveRecord: 0.6ms | Allocations: 7399)
+
+
+Started GET "/notes" for 127.0.0.1 at 2025-05-26 20:55:20 +0200
+Processing by NotesController#index as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/index.html.erb within layouts/turbo_rails/frame
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/turbo_rails/frame (Duration: 1.9ms | Allocations: 662)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 2.2ms | Allocations: 758)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 1191)
+
+
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:23 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1265)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | Allocations: 18110)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.1ms | Allocations: 18948)
+
+
+  
+ActionView::Template::Error (Asset `application.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.css
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:26 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 830)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 17262)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.2ms | Allocations: 17518)
+
+
+  
+ActionView::Template::Error (Asset `application.css` was not declared to be precompiled in production.
+Declare links to your assets in `app/assets/config/manifest.js`.
+
+  //= link application.css
+
+and restart your server):
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+    12:   </head>
+    13: 
+  
+app/views/layouts/application.html.erb:10
+Started GET "/" for 127.0.0.1 at 2025-05-26 20:55:29 +0200
+Processing by NotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering notes/index.html.erb within layouts/application
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1258)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2184)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 3037)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2025-05-26 20:55:31 +0200
+Processing by NotesController#new as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/new.html.erb within layouts/turbo_rails/frame
+  Rendered notes/_form.html.erb (Duration: 1.9ms | Allocations: 1259)
+  Rendered notes/new.html.erb within layouts/turbo_rails/frame (Duration: 2.8ms | Allocations: 1652)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 3.4ms | Allocations: 1884)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 2559)
+
+
+Started GET "/notes" for 127.0.0.1 at 2025-05-26 20:55:33 +0200
+Processing by NotesController#index as HTML
+  Rendering layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb
+  Rendering notes/index.html.erb within layouts/turbo_rails/frame
+  [1m[36mNote Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "notes" LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/notes/index.html.erb:16
+  Rendered notes/index.html.erb within layouts/turbo_rails/frame (Duration: 1.3ms | Allocations: 655)
+  Rendered layout /home/valentin/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/turbo-rails-2.0.12/app/views/layouts/turbo_rails/frame.html.erb (Duration: 1.4ms | Allocations: 750)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1204)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2025-05-26 20:55:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_in"):
+  
